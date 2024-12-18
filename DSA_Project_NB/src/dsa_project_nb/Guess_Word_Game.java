@@ -34,6 +34,12 @@ public class Guess_Word_Game extends javax.swing.JFrame {
         jButton1_Next.setEnabled(false);
     }
     
+    private void returnToHomePage() {
+    	this.setVisible(false);
+
+        new HomePage().setVisible(true);
+        }
+    
     public void displayWord(){
         if (index == -1) {
             jLabel2_Word.setText("Word");
@@ -154,13 +160,13 @@ public class Guess_Word_Game extends javax.swing.JFrame {
                 .addGap(44, 44, 44))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel_Close_, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel_Close_, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel_Close_, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel_Close_, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2_Word, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1_Guess, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,8 +194,9 @@ public class Guess_Word_Game extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel_Close_MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Close_MouseClicked
-
-        System.exit(0);
+    	
+    	returnToHomePage();
+    	
     }//GEN-LAST:event_jLabel_Close_MouseClicked
 
     private void jButton2_StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_StartActionPerformed

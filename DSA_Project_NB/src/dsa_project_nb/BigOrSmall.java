@@ -25,6 +25,12 @@ public class BigOrSmall extends javax.swing.JFrame {
         resetGame();
     }
     
+    private void returnToHomePage() {
+    	this.setVisible(false);
+
+        new HomePage().setVisible(true);
+        }
+    
     private void resetGame() {
         Random1.setText("-");
         Random2.setText("-");
@@ -120,6 +126,7 @@ public class BigOrSmall extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel_Close_1 = new javax.swing.JLabel();
         tilte = new javax.swing.JTextField();
         Random1 = new javax.swing.JTextField();
         Random2 = new javax.swing.JTextField();
@@ -128,10 +135,22 @@ public class BigOrSmall extends javax.swing.JFrame {
         Big = new javax.swing.JButton();
         guide = new javax.swing.JButton();
         Money = new javax.swing.JButton();
+        Exit = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton2");
+
+        jLabel_Close_1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel_Close_1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel_Close_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_Close_1.setText("X");
+        jLabel_Close_1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel_Close_1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel_Close_1MouseClicked(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -203,6 +222,17 @@ public class BigOrSmall extends javax.swing.JFrame {
             }
         });
 
+        Exit.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        Exit.setForeground(new java.awt.Color(255, 0, 0));
+        Exit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Exit.setText("X");
+        Exit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,13 +256,18 @@ public class BigOrSmall extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(Money, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(guide, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(guide, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap()
+                .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
                 .addComponent(tilte, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -298,6 +333,17 @@ public class BigOrSmall extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(this, "Current money: " + playerMoney, "Current Money", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_MoneyActionPerformed
 
+    
+    private void jLabel_Close_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_Close_1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel_Close_1MouseClicked
+
+    private void ExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitMouseClicked
+        // TODO add your handling code here: 
+        returnToHomePage();
+    	
+    }//GEN-LAST:event_ExitMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -335,6 +381,7 @@ public class BigOrSmall extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Big;
+    private javax.swing.JLabel Exit;
     private javax.swing.JButton Money;
     private javax.swing.JTextField Random1;
     private javax.swing.JTextField Random2;
@@ -343,6 +390,7 @@ public class BigOrSmall extends javax.swing.JFrame {
     private javax.swing.JButton guide;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel_Close_1;
     private javax.swing.JTextField tilte;
     // End of variables declaration//GEN-END:variables
 }
