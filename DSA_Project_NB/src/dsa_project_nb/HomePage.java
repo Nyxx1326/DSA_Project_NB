@@ -1,5 +1,8 @@
 package dsa_project_nb;
 
+
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -15,7 +18,12 @@ public class HomePage extends javax.swing.JFrame {
      * Creates new form HomePage
      */
     public HomePage() {
+    	
         initComponents();
+        
+        this.setLocationRelativeTo(null);
+        
+        
     }
 
     /**
@@ -85,7 +93,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         buttonOther.setFont(new java.awt.Font("Verdana", 0, 24)); // NOI18N
-        buttonOther.setText("Others");
+        buttonOther.setText("Updating...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,28 +141,27 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_Close_MouseClicked
 
     private void button_GWGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_GWGActionPerformed
-        // TODO add your handling code here:
         Guess_Word_Game gwg = new Guess_Word_Game();
     gwg.setVisible(true);
-    this.dispose(); // Close the homepage
+    this.dispose();
     }//GEN-LAST:event_button_GWGActionPerformed
 
     private void button_SGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_SGActionPerformed
         // TODO add your handling code here:
+    	squid_game sg = new squid_game();
+    	sg.setVisible(true);
+    	this.dispose();
     }//GEN-LAST:event_button_SGActionPerformed
 
     private void buttonBigSmallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBigSmallActionPerformed
-        // TODO add your handling code here:                                               
-    // Open the Big or Small game when the button is clicked
+
     BigOrSmall bosg = new BigOrSmall();
     bosg.setVisible(true);  // Show the new game window
     this.dispose();  // Close the current homepage window
 
     }//GEN-LAST:event_buttonBigSmallActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

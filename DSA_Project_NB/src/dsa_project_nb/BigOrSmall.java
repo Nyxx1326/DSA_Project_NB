@@ -19,6 +19,9 @@ public class BigOrSmall extends javax.swing.JFrame {
     
     public BigOrSmall() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
+        
         resetGame();
     }
     
