@@ -22,7 +22,27 @@ public class BigOrSmall extends javax.swing.JFrame {
         
         this.setLocationRelativeTo(null);
         
+        guide();
+        
+        moneyDisplay();
+        
         resetGame();
+    }
+    
+    private void guide() {
+    	String instructions = "Welcome to Big or Small!\n" +
+                "1. Click 'SMALL' if you think the sum of the numbers will be between 3 and 10.\n" +
+                "2. Click 'BIG' if you think the sum of the numbers will be between 11 and 18.\n" +
+                "3. You start with 240 money and must aim to reach 500 or 5000 money.\n" +
+                "4. Each round costs 20 money to play.";
+    	JOptionPane.showMessageDialog(this, instructions, "Game Instructions", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void moneyDisplay() {
+    	String money = Money.getText(); 
+        
+        // Show a message with the current money
+        JOptionPane.showMessageDialog(this, "Current money: " + playerMoney, "Current Money", JOptionPane.INFORMATION_MESSAGE);
     }
     
     private void returnToHomePage() {
@@ -316,21 +336,11 @@ public class BigOrSmall extends javax.swing.JFrame {
 
     private void guideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guideActionPerformed
         // TODO add your handling code here:
-        String instructions = "Welcome to Big or Small!\n" +
-                          "1. Click 'SMALL' if you think the sum of the numbers will be between 3 and 10.\n" +
-                          "2. Click 'BIG' if you think the sum of the numbers will be between 11 and 18.\n" +
-                          "3. You start with 240 money and must aim to reach 500 or 5000 money.\n" +
-                          "4. Each round costs 20 money to play.";
-    JOptionPane.showMessageDialog(this, instructions, "Game Instructions", JOptionPane.INFORMATION_MESSAGE);
+        guide();
     }//GEN-LAST:event_guideActionPerformed
 
     private void MoneyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoneyActionPerformed
-        // TODO add your handling code here:
-        
-        String money = Money.getText(); 
-    
-    // Show a message with the current money
-    JOptionPane.showMessageDialog(this, "Current money: " + playerMoney, "Current Money", JOptionPane.INFORMATION_MESSAGE);
+    	moneyDisplay();
     }//GEN-LAST:event_MoneyActionPerformed
 
     

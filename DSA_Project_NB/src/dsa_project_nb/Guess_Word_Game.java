@@ -17,6 +17,7 @@ public class Guess_Word_Game extends javax.swing.JFrame {
     
     
     String[] words = {"data","structure","algorithms","array","linked list","queue","hash table","stack"};
+    
     int index = -1;
     
     Border panel_border = BorderFactory.createMatteBorder( 2, 2, 2, 2, Color.black);
