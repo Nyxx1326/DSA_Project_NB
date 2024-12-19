@@ -117,7 +117,7 @@ public class BigOrSmall extends javax.swing.JFrame {
                 new String[]{"Quit", "Continue"}, "Quit");
 
         if (option == JOptionPane.YES_OPTION) {
-            System.exit(0); // Quit the game
+            returnToHomePage(); // Quit the game
         } else {
             if (goal == 500) {
                 goal = 5000; // Update goal to 5000

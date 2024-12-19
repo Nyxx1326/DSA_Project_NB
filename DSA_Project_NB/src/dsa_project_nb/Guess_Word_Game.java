@@ -5,6 +5,8 @@
 package dsa_project_nb;
 
 import java.awt.Color;
+import java.util.Random;
+
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
@@ -19,6 +21,7 @@ public class Guess_Word_Game extends javax.swing.JFrame {
     String[] words = {"data","structure","algorithms","array","linked list","queue","hash table","stack"};
     
     int index = -1;
+    int score = 0;
     
     Border panel_border = BorderFactory.createMatteBorder( 2, 2, 2, 2, Color.black);
     
@@ -33,6 +36,8 @@ public class Guess_Word_Game extends javax.swing.JFrame {
         displayWord();
         
         jButton1_Next.setEnabled(false);
+        
+        sortWords();
     }
     
     private void returnToHomePage() {
@@ -41,38 +46,58 @@ public class Guess_Word_Game extends javax.swing.JFrame {
         new HomePage().setVisible(true);
         }
     
+    public void sortWords() {
+    	for (int i = 0; i < words.length - 1; i++) {
+            for (int j = 0; j < words.length - i - 1; j++) {
+                if (words[j].compareTo(words[j + 1]) > 0) {
+                    // Swap
+                    String temp = words[j];
+                    words[j] = words[j + 1];
+                    words[j + 1] = temp;
+                }
+            }
+        }
+    }
+    
+    private String scrambleWord(String word) {
+        char[] letters = word.toCharArray();
+        Random random = new Random();
+
+        for (int i = letters.length - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            // Swap letters[i] and letters[j]
+            char temp = letters[i];
+            letters[i] = letters[j];
+            letters[j] = temp;
+        }
+        return new String(letters);
+    }
+    
     public void displayWord(){
         if (index == -1) {
             jLabel2_Word.setText("Word");
             jTextField1_Guess.setText("--Guess--");
         }
         else {
-            int pos1 =(int) (Math.random() * words[index].length());
-            int pos2 =(int) (Math.random() * words[index].length());
-            int pos3 =(int) (Math.random() * words[index].length());
-            int pos4 =(int) (Math.random() * words[index].length());
-            
-            StringBuilder newText = new StringBuilder(words[index]);
-            newText.setCharAt(pos1, '_');
-            newText.setCharAt(pos2, '_');
-            newText.setCharAt(pos3, '_');
-            newText.setCharAt(pos4, '_');
-            
-            jLabel2_Word.setText(newText.toString());
+        	String scrambledWord = scrambleWord(words[index]);
+            jLabel2_Word.setText(scrambledWord);
         }
         
     }
-    public void checkWord(){
-        if(jTextField1_Guess.getText().equals(words[index])){
+    public void checkWord() {
+        if (jTextField1_Guess.getText().equals(words[index])) {
             jLabel3_Result.setText("Correct");
             jLabel3_Result.setBackground(Color.green);
+            score++; // Increment score for a correct answer
         } else {
             jLabel3_Result.setText("Incorrect");
             jLabel3_Result.setBackground(Color.red);
         }
-        if(index == words.length - 1){
+        if (index == words.length - 1) {
             jButton1_Next.setEnabled(false);
             jButton2_Start.setEnabled(true);
+            // Display final score
+            jLabel3_Result.setText("Final Score: " + score + "/" + words.length);
         }
         jTextField1_Guess.setText("");
     }
